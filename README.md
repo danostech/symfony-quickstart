@@ -1,3 +1,7 @@
+![license](https://img.shields.io/github/license/danostech/symfony-quickstart?color=ff4e00&style=for-the-badge)
+![symfony](https://img.shields.io/badge/Symfony-5.3-black?logo=symfony&style=for-the-badge)
+![nginx](https://img.shields.io/badge/NGINX-1.21-009639?logo=NGINX&style=for-the-badge)
+![mariadb](https://img.shields.io/badge/MariaDB-10.6-003545?logo=MariaDB&style=for-the-badge)
 # Symfony5 Quickstart
 A Docker and PHP 8 development environment with NGINX and MariaDB.  
 This should get you up and running on a new Symfony5 project with the latest versions of PHP, MariaDB and NGINX in a matter of minutes, provided you have the required applications pre-installed.
