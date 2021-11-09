@@ -12,7 +12,7 @@ This should get you up and running on a new Symfony project in a matter of minut
 * [composer](https://getcomposer.org/download/) (see creating a Docker powered composer alias [here](https://gist.github.com/danostech/898256c58d3d563b44604487a30ebf93))
 
 ### Setup
-1. Clone this repository or create a new repository from this [template](https://github.com/danostech/docker-php8/generate) and follow the instructions below
+1. Clone this repository or create a new repository from this [template](https://github.com/danostech/symfony-quickstart/generate) and follow the instructions below
 ```shell
 # change danostech/symfony-quickstart.git to your repository if using this as a template
 $ git clone git@github.com:danostech/symfony-quickstart.git your_app_name
