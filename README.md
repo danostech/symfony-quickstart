@@ -1,5 +1,6 @@
 ![license](https://img.shields.io/github/license/danostech/symfony-quickstart?color=ff4e00&style=for-the-badge)
 ![symfony](https://img.shields.io/badge/Symfony-5.3-black?logo=symfony&style=for-the-badge)
+![php](https://img.shields.io/badge/PHP-8.0-777BB4?logo=php&style=for-the-badge)
 ![nginx](https://img.shields.io/badge/NGINX-1.21-009639?logo=NGINX&style=for-the-badge)
 ![mariadb](https://img.shields.io/badge/MariaDB-10.6-003545?logo=MariaDB&style=for-the-badge)
 # Symfony5 Quickstart
@@ -23,7 +24,7 @@ $ cd your_app_name
 $ composer create-project symfony/skeleton app
 ```
 
-3. Update ports, container names, and environment variables
+3. (optional) Update ports, container names, and environment variables 
 ```shell
 # update container names in docker-compose.yml and the console helper file
 # avoid using spaces or special characters here
@@ -34,7 +35,7 @@ $ sed -i s/quickstart/your_app_name/g {*.yml,console}
 # OSX
 $ sed -i '' s/quickstart/your_app_name/g {*.yml,console}
 
-# .env (optional)
+# .env (extra optional)
 # make changes to your MYSQL_USER, MYSQL_PASSWORD, and MYSQL_DATABASE environment variables
 ```
 4. Run docker-compose
