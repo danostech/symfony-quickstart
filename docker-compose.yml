@@ -3,14 +3,14 @@ version: "3.8"
 services:
   web:
     image: nginx:latest
-    container_name: demo_web
+    container_name: quickstart_web
     ports:
       - "8080:80"
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
 
   php:
-    container_name: demo_php
+    container_name: quickstart_php
     build:
       context: ./
       dockerfile: Dockerfile
@@ -21,14 +21,14 @@ services:
 
   mysql:
     image: mariadb:latest
-    container_name: demo_db
+    container_name: quickstart_db
     ports:
       - "33061:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 'root'
-      MYSQL_USER: "${MYSQL_USER-demo}"
-      MYSQL_PASSWORD: "${MYSQL_PASSWORD-demo}"
-      MYSQL_DATABASE: "${MYSQL_DATABASE-demo}"
+      MYSQL_USER: "${MYSQL_USER-quickstart}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD-quickstart}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE-quickstart}"
     volumes:
       - mysqldata:/var/lib/mysql
 

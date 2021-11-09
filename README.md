@@ -25,10 +25,10 @@ $ composer create-project symfony/skeleton app
 # avoid using spaces or special characters here
 
 # linux
-$ sed -i s/demo/your_app_name/g {*.yml,console}
+$ sed -i s/quickstart/your_app_name/g {*.yml,console}
 
 # OSX
-$ sed -i '' s/demo/your_app_name/g {*.yml,console}
+$ sed -i '' s/quickstart/your_app_name/g {*.yml,console}
 
 # .env (optional)
 # make changes to your MYSQL_USER, MYSQL_PASSWORD, and MYSQL_DATABASE environment variables
