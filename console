@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker exec -it quickstart_console "$@"
+docker exec -it quickstart_php console "$@"
