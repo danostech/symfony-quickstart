@@ -18,13 +18,13 @@ This should get you up and running on a new Symfony5 project with the latest ver
 # change danostech/symfony-quickstart.git to your repository if using this as a template
 $ git clone git@github.com:danostech/symfony-quickstart.git your_app_name
 ```
-2. Create your symfony project (make sure to call it app)
+2. Create your symfony project. This **MUST** be called `app`.
 ```shell
 $ cd your_app_name
 $ composer create-project symfony/skeleton app
 ```
 
-3. (optional) Update ports, container names, and environment variables 
+3. Update ports, container names, and environment variables [^1]
 ```shell
 # update container names in docker-compose.yml and the console helper file
 # avoid using spaces or special characters here
@@ -42,7 +42,7 @@ $ sed -i '' s/quickstart/your_app_name/g {*.yml,console}
 ```shell
 $ docker-compose up -d
 ```
-5. Check Symfony installation via the console
+5. Check Symfony installation via the console [^2]
 ```shell
 $ ./console about
 
@@ -77,10 +77,30 @@ $ ./console about
 
 ```
 
-If for some reason `./console` is not executable, run `chmod +x ./console` first.
+6. Visit http://localhost:8080 in your browser to view your new symfony app.
 
-6. Go to http://localhost:8080 in your browser to view your new symfony app.
-
-### Notes
+### *Notes*
 
 Any environment variables created in `.env` will be available in the php-fpm container. 
+
+#### Speed up the initial build
+Edit `docker-compose.yml`.
+
+Under `php:` change
+```yaml
+    build: 
+      context: ./ 
+      dockerfile: Dockerfile 
+```
+to this
+```yaml
+    image: danostech/php:symfony-quickstart 
+```
+This will pull in an image identical what would be built using the current Dockerfile.
+I did not include this in the original `docker-compose.yml` file because I HATE when I'm looking for
+some guidance on how to setup a Docker network and the advice is to "use this image I built!"
+That being said, use the image I built to speed things up. Or, don't. They're identical.
+
+[^1]: Modifying these values is completely optional.
+However, creating multiple networks from this template on the same host machine will require you to change ports and container names.
+[^2]: If for some reason `./console` is not executable, run `chmod +x ./console` first.
