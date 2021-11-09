@@ -36,8 +36,8 @@ $ sed -i s/quickstart/your_app_name/g {*.yml,console}
 # OSX
 $ sed -i '' s/quickstart/your_app_name/g {*.yml,console}
 
-# Windows
-$ ¯\_(ツ)_/¯
+# Windows (if you know what the proper command is, please comment or open a pull request)
+$ ¯\_(ツ)_/¯ 
 
 # .env (extra optional)
 # make changes to your MYSQL_USER, MYSQL_PASSWORD, and MYSQL_DATABASE environment variables
@@ -87,9 +87,10 @@ $ ./console about
 #### Environment Variables
 Any environment variables created in `.env` will be available in the php-fpm container. 
 
-#### Speed up the initial build 
-Edit `docker-compose.yml`, under `php:`  
-  
+#### Speed up the initial build (for slower machines)
+This will pull in an image identical what would be built using the current Dockerfile. [^3]
+
+Edit `docker-compose.yml` --> `php:`    
 ```yaml
 # change this
 build: 
@@ -100,12 +101,10 @@ build:
 image: danostech/php:symfony-quickstart 
 ```
 
-This will pull in an image identical what would be built using the current Dockerfile. [^3]
-
 
 [^1]: Modifying these values is completely optional.
 _**However**_, creating multiple networks from this template on the same host machine will require you to change ports and container names.
 [^2]: If for some reason `./console` is not executable, run `chmod +x ./console` first.
 [^3]: I did not include this in the original `docker-compose.yml` file because I HATE when I'm looking for
-some guidance on how to setup a Docker network and the advice is to "use this image I built!"
-That being said, use the image I built to speed things up. Or, don't. They're identical.
+some guidance on how to setup a Docker network and the advice is to "use this image I built!".
+That being said if you're on a slower computer, use the image I built to speed things up. If not, you'll be waiting a while for the PHP extensions to be compiled.
