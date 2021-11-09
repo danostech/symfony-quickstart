@@ -3,9 +3,10 @@
 ![php](https://img.shields.io/badge/PHP-8.0-777BB4?logo=php&style=for-the-badge)
 ![nginx](https://img.shields.io/badge/NGINX-1.21-009639?logo=NGINX&style=for-the-badge)
 ![mariadb](https://img.shields.io/badge/MariaDB-10.6-003545?logo=MariaDB&style=for-the-badge)
-# Symfony5 Quickstart
-A Docker and PHP 8 development environment with NGINX and MariaDB.  
-This should get you up and running on a new Symfony5 project with the latest versions of PHP, MariaDB and NGINX in a matter of minutes, provided you have the required applications pre-installed.
+# Symfony Quickstart Environment
+A Symfony5 **development** environment with PHP8, NGINX and MariaDB.  
+  
+This should get you up and running on a new Symfony5 project in a matter of minutes, provided you have the required applications pre-installed.
 
 ### System Requirements
 * [docker](https://docs.docker.com/get-docker/)
@@ -34,6 +35,9 @@ $ sed -i s/quickstart/your_app_name/g {*.yml,console}
 
 # OSX
 $ sed -i '' s/quickstart/your_app_name/g {*.yml,console}
+
+# Windows
+$ ¯\_(ツ)_/¯
 
 # .env (extra optional)
 # make changes to your MYSQL_USER, MYSQL_PASSWORD, and MYSQL_DATABASE environment variables
@@ -79,28 +83,29 @@ $ ./console about
 
 6. Visit http://localhost:8080 in your browser to view your new symfony app.
 
-### *Notes*
-
+### *Additional Notes*
+#### Environment Variables
 Any environment variables created in `.env` will be available in the php-fpm container. 
 
-#### Speed up the initial build
-Edit `docker-compose.yml`.
+#### Speed up the initial build 
+Edit `docker-compose.yml`, under `php:`  
+  
+```yaml
+# change this
+build: 
+    context: ./ 
+    dockerfile: Dockerfile 
 
-Under `php:` change
-```yaml
-    build: 
-      context: ./ 
-      dockerfile: Dockerfile 
+# to this
+image: danostech/php:symfony-quickstart 
 ```
-to this
-```yaml
-    image: danostech/php:symfony-quickstart 
-```
-This will pull in an image identical what would be built using the current Dockerfile.
-I did not include this in the original `docker-compose.yml` file because I HATE when I'm looking for
-some guidance on how to setup a Docker network and the advice is to "use this image I built!"
-That being said, use the image I built to speed things up. Or, don't. They're identical.
+
+This will pull in an image identical what would be built using the current Dockerfile. [^3]
+
 
 [^1]: Modifying these values is completely optional.
-However, creating multiple networks from this template on the same host machine will require you to change ports and container names.
+_**However**_, creating multiple networks from this template on the same host machine will require you to change ports and container names.
 [^2]: If for some reason `./console` is not executable, run `chmod +x ./console` first.
+[^3]: I did not include this in the original `docker-compose.yml` file because I HATE when I'm looking for
+some guidance on how to setup a Docker network and the advice is to "use this image I built!"
+That being said, use the image I built to speed things up. Or, don't. They're identical.
