@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  web:
+    image: nginx:latest
+    container_name: demo_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+
+  php:
+    container_name: demo_php
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./app:/app
+
+  mysql:
+    image: mariadb:latest
+    container_name: demo_db
+    ports:
+      - "33061:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_USER: "${MYSQL_USER-demo}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD-demo}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE-demo}"
+    volumes:
+      - mysqldata:/var/lib/mysql
+
+volumes:
+  mysqldata: {}
