@@ -2,9 +2,9 @@
 ![nginx](https://img.shields.io/badge/NGINX-1.21-009639?logo=NGINX&style=for-the-badge)
 ![mariadb](https://img.shields.io/badge/MariaDB-10.6-003545?logo=MariaDB&style=for-the-badge)
 # Symfony Quickstart Environment
-A Symfony5 **development** environment with PHP8, NGINX and MariaDB.  
+A Symfony **development** environment with PHP8, NGINX and MariaDB.  
   
-This should get you up and running on a new Symfony5 project in a matter of minutes, provided you have the required applications pre-installed.
+This should get you up and running on a new Symfony project in a matter of minutes, provided you have the required applications pre-installed.
 
 ### System Requirements
 * [docker](https://docs.docker.com/get-docker/)
