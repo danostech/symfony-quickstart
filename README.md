@@ -1,4 +1,3 @@
-![symfony](https://img.shields.io/badge/Symfony-5.3-black?logo=symfony&style=for-the-badge)
 ![php](https://img.shields.io/badge/PHP-8.0-777BB4?logo=php&style=for-the-badge)
 ![nginx](https://img.shields.io/badge/NGINX-1.21-009639?logo=NGINX&style=for-the-badge)
 ![mariadb](https://img.shields.io/badge/MariaDB-10.6-003545?logo=MariaDB&style=for-the-badge)
