@@ -29,10 +29,10 @@ $ composer create-project symfony/skeleton app
 # avoid using spaces or special characters here
 
 # linux
-$ sed -i s/quickstart/your_app_name/g {*.yml,console}
+$ sed -i s/quickstart/your_app_name/g {.env,docker-compose.yml,console}
 
 # OSX
-$ sed -i '' s/quickstart/your_app_name/g {*.yml,console}
+$ sed -i '' s/quickstart/your_app_name/g {.env,docker-compose.yml,console}
 
 # Windows (if you know what the proper command is, please comment or open a pull request)
 $ ¯\_(ツ)_/¯ 
