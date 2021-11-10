@@ -88,15 +88,25 @@ Any environment variables created in `.env` will be available in the php-fpm con
 #### Speed up the initial build (for slower machines)
 This will pull in an image identical what would be built using the current Dockerfile. [^3]
 
-Edit `docker-compose.yml` --> `php:`    
-```yaml
-# change this
-build: 
-    context: ./ 
-    dockerfile: Dockerfile 
+Edit `Dockerfile` and change:
+```Dockerfile
+# The latest PHP fpm-buster image
+FROM php:fpm-buster
 
-# to this
-image: danostech/php:symfony-quickstart 
+# Path to Symfony's console
+ENV PATH="${PATH}:/app/bin"
+
+# Install PDO and PDO_MySQL extensions
+RUN docker-php-ext-install pdo pdo_mysql
+
+# Install & Enable xdebug
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+```
+
+to:
+```Dockerfile
+# The latest Symfony Quickstart image
+FROM danostech/php:symfony-quickstart 
 ```
 
 
