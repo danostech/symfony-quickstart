@@ -88,7 +88,6 @@ The line `ENV PATH="${PATH}:/app/bin"` in the Dockerfile makes this possible.
 
 Example from inside the app/ directory:
 ```shell
-$ cd app/
 $ ../console make:controller
 
  Choose a name for your controller class (e.g. OrangePopsicleController):
