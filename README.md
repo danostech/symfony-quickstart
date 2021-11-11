@@ -82,6 +82,19 @@ $ ./console about
 6. Visit http://localhost:8080 in your browser to view your new symfony app.
 
 ### *Additional Notes*
+#### What is console?
+`./console` is a simple shell script that calls Symfony's console command from your host machine.  
+The line `ENV PATH="${PATH}:/app/bin"` in the Dockerfile makes this possible. 
+
+Example from inside the app/ directory:
+```shell
+$ cd app/
+$ ../console make:controller
+
+ Choose a name for your controller class (e.g. OrangePopsicleController):
+ > 
+```
+
 #### Environment Variables
 Any environment variables created in `.env` will be available in the php-fpm container. 
 
