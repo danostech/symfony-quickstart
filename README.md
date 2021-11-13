@@ -1,6 +1,9 @@
+![quickstart](https://img.shields.io/badge/quickstart-1.01-ff4e00?logo=symfony&style=for-the-badge)  
+![docker](https://img.shields.io/badge/docker-~20.10-2496ED?logo=docker&style=for-the-badge)
+![docker-compose](https://img.shields.io/badge/docker%20compose-~1.28-2496ED?logo=docker&style=for-the-badge)  
 ![php](https://img.shields.io/badge/PHP-8.0-777BB4?logo=php&style=for-the-badge)
 ![nginx](https://img.shields.io/badge/NGINX-1.21-009639?logo=NGINX&style=for-the-badge)
-![mariadb](https://img.shields.io/badge/MariaDB-10.6-003545?logo=MariaDB&style=for-the-badge)
+![mariadb](https://img.shields.io/badge/MariaDB-10.6-003545?logo=MariaDB&style=for-the-badge)  
 # Symfony Quickstart Environment
 A Symfony **development** environment with PHP8, NGINX and MariaDB.  
   
@@ -80,22 +83,11 @@ $ ./console about
 ```
 
 6. Visit http://localhost:8080 in your browser to view your new symfony app.
-
-### *Additional Notes*
-#### What is console?
-`./console` is a simple shell script that calls Symfony's console command from your host machine.  
-The line `ENV PATH="${PATH}:/app/bin"` in the Dockerfile makes this possible. 
-
-Example from inside the app/ directory:
-```shell
-$ ../console make:controller
-
- Choose a name for your controller class (e.g. OrangePopsicleController):
- > 
-```
-
-#### Environment Variables
-Any environment variables created in `.env` will be available in the php-fpm container. 
+---
+### Next Steps
+#### Change your README
+Run `rm README.md && mv README.sample.md README.md`  
+Edit the new `README.md` file. Make sure to change anything in [brackets] and change [project] to your project name.
 
 #### Speed up the initial build (for slower machines)
 This will pull in an image identical what would be built using the current Dockerfile. [^3]
@@ -121,10 +113,25 @@ to:
 FROM danostech/php:symfony-quickstart 
 ```
 
+#### What is console?
+`./console` is a simple shell script that calls Symfony's console command from your host machine.  
+The line `ENV PATH="${PATH}:/app/bin"` in the Dockerfile makes this possible. 
+
+Example from inside the app/ directory:
+```shell
+$ ../console make:controller
+
+ Choose a name for your controller class (e.g. OrangePopsicleController):
+ > 
+```
+
+#### Environment Variables
+Any environment variables created in `.env` will be available in your Symfony application.
+
 
 [^1]: Modifying these values is completely optional.
 _**However**_, creating multiple networks from this template on the same host machine will require you to change ports and container names.
 [^2]: If for some reason `./console` is not executable, run `chmod +x ./console` first.
 [^3]: I did not include this in the original `docker-compose.yml` file because I HATE when I'm looking for
 some guidance on how to setup a Docker network and the advice is to "use this image I built!".
-That being said if you're on a slower computer, use the image I built to speed things up. If not, you'll be waiting a while for the PHP extensions to be compiled.
+That being said if you're on a slower computer, use the image I built to speed things up. If not, you'll be waiting a while for the PHP extensions to be compiled when you first run `docker-compose up`
