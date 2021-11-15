@@ -1,11 +1,11 @@
 # [Project Title]
 
-### System Requirements
+## System Requirements
 * [docker](https://docs.docker.com/get-docker/)
 * [docker-compose](https://docs.docker.com/compose/install/)
 * [composer](https://getcomposer.org/download/) (see creating a Docker powered composer alias [here](https://gist.github.com/danostech/898256c58d3d563b44604487a30ebf93))
 
-### Setup
+## Setup
 1. Clone this repository
 ```shell
 $ git clone git@github.com:[repo-owner]/[project].git
@@ -57,11 +57,8 @@ $ ../console about
 
 5. Project is available at http://localhost:8080
 
----
-### Next Steps
-#### Speed up the initial build (for slower machines)
-This will pull in an image identical what would be built using the current Dockerfile.
-
+## Next Steps
+### Speed up the initial build
 Edit `Dockerfile` and change:
 ```Dockerfile
 # The latest PHP fpm-buster image
@@ -83,7 +80,7 @@ to:
 FROM danostech/php:symfony-quickstart 
 ```
 
-#### What is console?
+### What is console?
 `./console` is a simple shell script that calls Symfony's console command from your host machine.  
 The line `ENV PATH="${PATH}:/app/bin"` in the Dockerfile makes this possible. 
 
@@ -95,7 +92,7 @@ $ ../console make:controller
  > 
 ```
 
-#### Environment Variables
+### Environment Variables
 Any environment variables created in `.env` will be available in the [project]_php container. 
 
 [^1]: If for some reason `./console` is not executable, run `chmod +x ./console` first.

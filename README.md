@@ -1,6 +1,3 @@
-![quickstart](https://img.shields.io/badge/quickstart-1.01-ff4e00?logo=symfony&style=for-the-badge)  
-![docker](https://img.shields.io/badge/docker-~20.10-2496ED?logo=docker&style=for-the-badge)
-![docker-compose](https://img.shields.io/badge/docker%20compose-~1.28-2496ED?logo=docker&style=for-the-badge)  
 ![php](https://img.shields.io/badge/PHP-8.0-777BB4?logo=php&style=for-the-badge)
 ![nginx](https://img.shields.io/badge/NGINX-1.21-009639?logo=NGINX&style=for-the-badge)
 ![mariadb](https://img.shields.io/badge/MariaDB-10.6-003545?logo=MariaDB&style=for-the-badge)  
@@ -9,12 +6,12 @@ A Symfony **development** environment with PHP8, NGINX and MariaDB.
   
 This should get you up and running on a new Symfony project in a matter of minutes, provided you have the required applications pre-installed.
 
-### System Requirements
+## System Requirements
 * [docker](https://docs.docker.com/get-docker/)
 * [docker-compose](https://docs.docker.com/compose/install/)
 * [composer](https://getcomposer.org/download/) (see creating a Docker powered composer alias [here](https://gist.github.com/danostech/898256c58d3d563b44604487a30ebf93))
 
-### Setup
+## Setup
 1. Clone this repository or create a new repository from this [template](https://github.com/danostech/symfony-quickstart/generate) and follow the instructions below
 ```shell
 # change danostech/symfony-quickstart.git to your repository if using this as a template
@@ -83,15 +80,17 @@ $ ./console about
 ```
 
 6. Visit http://localhost:8080 in your browser to view your new symfony app.
----
-### Next Steps
-#### Change your README
-Run `rm README.md && mv README.sample.md README.md`  
+
+## Next Steps
+### Change your README
+```shell
+$ rm README.md
+$ mv README.sample.md README.md
+```
+
 Edit the new `README.md` file. Make sure to change anything in [brackets] and change [project] to your project name.
 
-#### Speed up the initial build (for slower machines)
-This will pull in an image identical what would be built using the current Dockerfile. [^3]
-
+### Speed up the initial build[^3]
 Edit `Dockerfile` and change:
 ```Dockerfile
 # The latest PHP fpm-buster image
@@ -113,7 +112,7 @@ to:
 FROM danostech/php:symfony-quickstart 
 ```
 
-#### What is console?
+### What is console?
 `./console` is a simple shell script that calls Symfony's console command from your host machine.  
 The line `ENV PATH="${PATH}:/app/bin"` in the Dockerfile makes this possible. 
 
@@ -125,13 +124,13 @@ $ ../console make:controller
  > 
 ```
 
-#### Environment Variables
+### Environment Variables
 Any environment variables created in `.env` will be available in your Symfony application.
 
 
 [^1]: Modifying these values is completely optional.
 _**However**_, creating multiple networks from this template on the same host machine will require you to change ports and container names.
 [^2]: If for some reason `./console` is not executable, run `chmod +x ./console` first.
-[^3]: I did not include this in the original `docker-compose.yml` file because I HATE when I'm looking for
-some guidance on how to setup a Docker network and the advice is to "use this image I built!".
-That being said if you're on a slower computer, use the image I built to speed things up. If not, you'll be waiting a while for the PHP extensions to be compiled when you first run `docker-compose up`
+[^3]: I did not include this in the original Dockerfile because I'm not a fan of learning packages/tutorials that don't give you the "bare bones" information and suggest that you use their images instead.
+That being said if you're on a slower computer, use the image I built to speed things up.
+If not, you'll be waiting a while for the PHP extensions to be compiled when you first run `docker-compose up`
